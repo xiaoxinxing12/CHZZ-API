@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_jfinal_demo_for_maven" default="compile.module.jfinal_demo_for_maven">
+  <dirname property="module.jfinal_demo_for_maven.basedir" file="${ant.file.module_jfinal_demo_for_maven}"/>
+  
+  <property name="module.jdk.home.jfinal_demo_for_maven" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jfinal_demo_for_maven" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jfinal_demo_for_maven" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jfinal_demo_for_maven" value="-encoding UTF-8 -source 1.5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="jfinal_demo_for_maven.output.dir" value="${module.jfinal_demo_for_maven.basedir}/target/classes"/>
+  <property name="jfinal_demo_for_maven.testoutput.dir" value="${module.jfinal_demo_for_maven.basedir}/target/test-classes"/>
+  
+  <path id="jfinal_demo_for_maven.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jfinal_demo_for_maven.module.production.classpath">
+    <path refid="${module.jdk.classpath.jfinal_demo_for_maven}"/>
+    <path refid="library.maven:_com.jfinal:jetty-server:8.1.8.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-continuation:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:3.2.classpath"/>
+    <path refid="library.maven:_cglib:cglib-nodep:3.2.5.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.20.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.0.29.classpath"/>
+    <pathelement location="${basedir}/../../../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/lib/jconsole.jar"/>
+    <pathelement location="${basedir}/../../../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/lib/tools.jar"/>
+    <path refid="library.maven:_com.jfinal:cos:2017.5.classpath"/>
+    <path refid="library.aip-java-sdk-3.1.0.classpath"/>
+  </path>
+  
+  <path id="jfinal_demo_for_maven.runtime.production.module.classpath">
+    <pathelement location="${jfinal_demo_for_maven.output.dir}"/>
+    <path refid="library.maven:_com.jfinal:jetty-server:8.1.8.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-continuation:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:3.2.classpath"/>
+    <path refid="library.maven:_cglib:cglib-nodep:3.2.5.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.20.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.0.29.classpath"/>
+    <pathelement location="${basedir}/../../../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/lib/jconsole.jar"/>
+    <pathelement location="${basedir}/../../../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/lib/tools.jar"/>
+    <path refid="library.maven:_com.jfinal:cos:2017.5.classpath"/>
+    <path refid="library.aip-java-sdk-3.1.0.classpath"/>
+  </path>
+  
+  <path id="jfinal_demo_for_maven.module.classpath">
+    <path refid="${module.jdk.classpath.jfinal_demo_for_maven}"/>
+    <pathelement location="${jfinal_demo_for_maven.output.dir}"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+    <path refid="library.maven:_com.jfinal:jetty-server:8.1.8.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-continuation:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:3.2.classpath"/>
+    <path refid="library.maven:_cglib:cglib-nodep:3.2.5.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.20.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.0.29.classpath"/>
+    <pathelement location="${basedir}/../../../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/lib/jconsole.jar"/>
+    <pathelement location="${basedir}/../../../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/lib/tools.jar"/>
+    <path refid="library.maven:_com.jfinal:cos:2017.5.classpath"/>
+    <path refid="library.aip-java-sdk-3.1.0.classpath"/>
+  </path>
+  
+  <path id="jfinal_demo_for_maven.runtime.module.classpath">
+    <pathelement location="${jfinal_demo_for_maven.testoutput.dir}"/>
+    <pathelement location="${jfinal_demo_for_maven.output.dir}"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+    <path refid="library.maven:_com.jfinal:jetty-server:8.1.8.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-servlet:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-security:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-server:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-continuation:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:8.1.8.v20121106.classpath"/>
+    <path refid="library.maven:_com.jfinal:jfinal:3.2.classpath"/>
+    <path refid="library.maven:_cglib:cglib-nodep:3.2.5.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.20.classpath"/>
+    <path refid="library.maven:_com.alibaba:druid:1.0.29.classpath"/>
+    <pathelement location="${basedir}/../../../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/lib/jconsole.jar"/>
+    <pathelement location="${basedir}/../../../../../../Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/lib/tools.jar"/>
+    <path refid="library.maven:_com.jfinal:cos:2017.5.classpath"/>
+    <path refid="library.aip-java-sdk-3.1.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jfinal_demo_for_maven">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jfinal_demo_for_maven">
+    <patternset refid="excluded.from.module.jfinal_demo_for_maven"/>
+  </patternset>
+  
+  <path id="jfinal_demo_for_maven.module.sourcepath">
+    <dirset dir="${module.jfinal_demo_for_maven.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="jfinal_demo_for_maven.module.test.sourcepath">
+    <dirset dir="${module.jfinal_demo_for_maven.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jfinal_demo_for_maven" depends="compile.module.jfinal_demo_for_maven.production,compile.module.jfinal_demo_for_maven.tests" description="Compile module jfinal_demo_for_maven"/>
+  
+  <target name="compile.module.jfinal_demo_for_maven.production" depends="register.custom.compilers" description="Compile module jfinal_demo_for_maven; production classes">
+    <mkdir dir="${jfinal_demo_for_maven.output.dir}"/>
+    <javac2 destdir="${jfinal_demo_for_maven.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jfinal_demo_for_maven}/javac">
+      <compilerarg line="${compiler.args.jfinal_demo_for_maven}"/>
+      <bootclasspath refid="jfinal_demo_for_maven.module.bootclasspath"/>
+      <classpath refid="jfinal_demo_for_maven.module.production.classpath"/>
+      <src refid="jfinal_demo_for_maven.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jfinal_demo_for_maven"/>
+    </javac2>
+    
+    <copy todir="${jfinal_demo_for_maven.output.dir}">
+      <fileset dir="${module.jfinal_demo_for_maven.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jfinal_demo_for_maven.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jfinal_demo_for_maven.tests" depends="register.custom.compilers,compile.module.jfinal_demo_for_maven.production" description="compile module jfinal_demo_for_maven; test classes" unless="skip.tests">
+    <mkdir dir="${jfinal_demo_for_maven.testoutput.dir}"/>
+    <javac2 destdir="${jfinal_demo_for_maven.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jfinal_demo_for_maven}/javac">
+      <compilerarg line="${compiler.args.jfinal_demo_for_maven}"/>
+      <bootclasspath refid="jfinal_demo_for_maven.module.bootclasspath"/>
+      <classpath refid="jfinal_demo_for_maven.module.classpath"/>
+      <src refid="jfinal_demo_for_maven.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jfinal_demo_for_maven"/>
+    </javac2>
+    
+    <copy todir="${jfinal_demo_for_maven.testoutput.dir}">
+      <fileset dir="${module.jfinal_demo_for_maven.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.jfinal_demo_for_maven" description="cleanup module">
+    <delete dir="${jfinal_demo_for_maven.output.dir}"/>
+    <delete dir="${jfinal_demo_for_maven.testoutput.dir}"/>
+  </target>
+</project>
