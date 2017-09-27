@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CHZZ_API_maven:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="CHZZ_API_maven.war">
+      <element id="artifact" artifact-name="CHZZ_API_maven:war exploded" />
+    </root>
+  </artifact>
+</component>
