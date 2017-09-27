@@ -1,77 +1,105 @@
-#include("common_header.html")
-<div class="page-container">
-
-    <div class="page-content-wrapper ">
-        <div class=" portlet light bordered">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="icon-microphone font-dark hide"></i>
-                    <span class="caption-subject bold font-dark uppercase"> 我的所有项目</span>
-                    <span class="caption-helper">API</span>
-                </div>
-                <div class="actions">
-                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                        <label class="btn green btn-outline btn-circle btn-sm active">
-                            <input type="radio" name="options" class="toggle" id="option1">添加项目</label>
-                        <label class="btn  red btn-outline btn-circle btn-sm">
-                            <input type="radio" name="options" class="toggle" id="option2">引入项目</label>
-                    </div>
-                </div>
+#@layout()
+#define main()
+<div class="page-content-wrapper ">
+    <div class=" portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-microphone font-dark hide"></i>
+                <span class="caption-subject bold font-dark uppercase"> 我的所有项目</span>
+                <span class="caption-helper">API</span>
             </div>
-            <div class="portlet-body">
-                <div class="row">
-
-                    <form class="login-form" action="/profile" method="post">
-                        <div class="col-md-3">
-                            <div class="mt-widget-2">
-                                <div class="mt-head"
-                                     style="background-image: url(../assets/pages/img/background/32.jpg);">
-                                    <div class="mt-head-label">
-                                        <button type="button" class="btn btn-success">CHZZ-Android</button>
-                                    </div>
-                                    <div class="mt-head-user">
-                                        <div class="mt-head-user-img">
-                                            <img src="../assets/pages/img/avatars/team7.jpg"></div>
-                                        <div class="mt-head-user-info">
-                                            <span class="mt-user-name">Chris Jagers</span>
-                                            <span class="mt-user-time">
-                                                                    <i class="icon-emoticon-smile"></i> 3 分钟前 </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-body">
-                                    <h3 class="mt-body-title"> CHZZ-Android </h3>
-                                    <p class="mt-body-description">
-                                        今天开始使用bootstrap想做一个东西,发现官方docs里面没有关于高度的定义如果我自己写一个css引入的话,这样符合bootstrap的使用规范吗</p>
-                                    <ul class="mt-body-stats">
-                                        <li class="font-green">
-                                            <i class="icon-emoticon-smile"></i> 3,7k
-                                        </li>
-                                        <li class="font-yellow">
-                                            <i class=" icon-social-twitter"></i> 3,7k
-                                        </li>
-                                        <li class="font-red">
-                                            <i class="  icon-bubbles"></i> 3,7k
-                                        </li>
-                                    </ul>
-                                    <div class="mt-body-actions">
-                                        <button type="submit" class="btn blue btn-block">查看项目API</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
+            <div class="actions">
+                <div class="btn-group btn-group-devided" data-toggle="buttons">
+                    <a class="btn btn-outline dark" data-toggle="modal" href="#responsive"> 添加项目</a>
+                    <label class="btn  red btn-outline btn-circle btn-sm">
+                        <input type="radio" name="options" class="toggle" id="option2">引入项目</label>
                 </div>
             </div>
         </div>
+        <div class="portlet-body">
+            <div class="row">
+
+                <form class="login-form" action="/profile" method="post">
+                    <div class="col-md-3">
+                        <div class="mt-widget-2">
+                            <div class="mt-head"
+                                 style="background-image: url(../assets/pages/img/background/32.jpg);">
+                                <div class="mt-head-label">
+                                    <button type="button" class="btn btn-success">CHZZ-Android</button>
+                                </div>
+                                <div class="mt-head-user">
+                                    <div class="mt-head-user-img">
+                                        <img src="../assets/pages/img/avatars/team7.jpg"></div>
+                                    <div class="mt-head-user-info">
+                                        <span class="mt-user-name">Chris Jagers</span>
+                                        <span class="mt-user-time">
+                                                                    <i class="icon-emoticon-smile"></i> 3 分钟前 </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-body">
+                                <h3 class="mt-body-title"> CHZZ-Android </h3>
+                                <p class="mt-body-description">
+                                    今天开始使用bootstrap想做一个东西,发现官方docs里面没有关于高度的定义如果我自己写一个css引入的话,这样符合bootstrap的使用规范吗</p>
+                                <ul class="mt-body-stats">
+                                    <li class="font-green">
+                                        <i class="icon-emoticon-smile"></i> 3,7k
+                                    </li>
+                                    <li class="font-yellow">
+                                        <i class=" icon-social-twitter"></i> 3,7k
+                                    </li>
+                                    <li class="font-red">
+                                        <i class="  icon-bubbles"></i> 3,7k
+                                    </li>
+                                </ul>
+                                <div class="mt-body-actions">
+                                    <button type="submit" class="btn blue btn-block">查看项目API</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                #for(x : projectPage.getList())
+                <h3> #(x.projectName)</h3>
+                #end
+
+
+                    <!-- 模态框（Modal） -->
+                    <div class="modal fade" id="responsive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        模态框（Modal）标题
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    在这里添加一些文本
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
+                                        提交更改
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div>
+
+            </div>
+        </div>
+
     </div>
+
+
+
+
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
 
-#include("common_footer.html")
-</div>
-</body>
-
-</html>
+#end

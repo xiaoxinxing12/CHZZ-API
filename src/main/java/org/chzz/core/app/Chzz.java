@@ -1,6 +1,5 @@
 package org.chzz.core.app;
 
-import android.content.Context;
 
 import java.util.HashMap;
 
@@ -15,11 +14,11 @@ public final class Chzz {
 
     /**
      * 初始化Chzz配置
-     * @param context
+     * @param
      * @return
      */
-    public static Configurator init(Context context) {
-        getConfigurations().put(ConfigType.APPLICATION_CONTEXY.name(), context.getApplicationContext());
+    public static Configurator init() {
+        //getConfigurations().put(ConfigType.APPLICATION_CONTEXY.name());
         return Configurator.getInstance();
 
     }
@@ -50,9 +49,9 @@ public final class Chzz {
      * 获取全局Application
      * @return
      */
-    public  static Context getApplication(){
-        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXY.name());
-    }
+//    public  static Context getApplication(){
+//        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXY.name());
+//    }
 
 
 }

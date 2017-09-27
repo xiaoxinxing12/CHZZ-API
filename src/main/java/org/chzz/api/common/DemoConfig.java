@@ -2,9 +2,9 @@ package org.chzz.api.common;
 
 import org.chzz.api.blog.BlogController;
 import org.chzz.api.common.model._MappingKit;
-import org.chzz.api.index.IndexController;
-import org.chzz.api.main.MainController;
-import org.chzz.api.main.ProfileController;
+import org.chzz.api.controller.LoginController;
+import org.chzz.api.controller.MainController;
+import org.chzz.api.controller.ProjectController;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -16,6 +16,7 @@ import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.template.Engine;
+import org.chzz.core.app.Chzz;
 
 /**
  * 本 demo 仅表达最为粗浅的 jfinal 用法，更为有价值的实用的企业级用法
@@ -33,6 +34,7 @@ public class DemoConfig extends JFinalConfig {
      * -XX:PermSize=64M -XX:MaxPermSize=256M
      */
     public static void main(String[] args) {
+
         /**
          * 特别注意：Eclipse 之下建议的启动方式
          */
@@ -42,6 +44,8 @@ public class DemoConfig extends JFinalConfig {
          * 特别注意：IDEA 之下建议的启动方式，仅比 eclipse 之下少了最后一个参数
          */
         JFinal.start("src/main/webapp", 80, "/");
+
+
     }
 
     /**
@@ -49,6 +53,9 @@ public class DemoConfig extends JFinalConfig {
      */
     public void configConstant(Constants me) {
         // 加载少量必要配置，随后可用PropKit.get(...)获取值
+        Chzz.init()
+                .withApiHost("http://zyy.hxyiyo.com/")
+                .configure();
         PropKit.use("a_little_config.txt");
         me.setDevMode(PropKit.getBoolean("devMode", false));
     }
@@ -57,14 +64,17 @@ public class DemoConfig extends JFinalConfig {
      * 配置路由
      */
     public void configRoute(Routes me) {
-        me.add("/", IndexController.class, "/login");    // 第三个参数为该Controller的视图存放路径
-        me.add("/main", MainController.class);
+        String viewPath="/html/";
+        me.add("/", LoginController.class, viewPath);    // 第三个参数为该Controller的视图存放路径
+        me.add("/main", MainController.class,viewPath);
         me.add("/blog", BlogController.class);            // 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
-        me.add("/profile", ProfileController.class);
+        me.add("/profile", ProjectController.class,viewPath);
     }
 
     public void configEngine(Engine me) {
-        me.addSharedFunction("/common/_layout.html");
+        me.setDevMode(true);
+        me.addSharedFunction("/common/_main_layout.html");
+        me.addSharedFunction("/common/_index_layout.html");
         me.addSharedFunction("/common/_paginate.html");
     }
 

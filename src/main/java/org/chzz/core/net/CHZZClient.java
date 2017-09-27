@@ -1,7 +1,5 @@
 package org.chzz.core.net;
 
-import android.content.Context;
-import android.widget.Toast;
 
 import org.chzz.core.app.Chzz;
 import org.chzz.core.net.callback.IError;
@@ -46,22 +44,22 @@ public class CHZZClient {
     private final RequestBody BODY;
     //加载图标样式
     //上下文
-    private final Context CONTEXT;
+
     //上传的文件
     private final File FILE;
 
     public CHZZClient(String URL, Map<String, Object> params, IRequest request, ISuccess success, IFailure failure, IError error,
-                      RequestBody body, File file, Context context) {
+                      RequestBody body, File file) {
         this.PARAMS = new HashMap<>();
         this.URL = URL;
-        this.PARAMS.putAll(params);
+        if (params != null)
+            this.PARAMS.putAll(params);
         this.REQUEST = request;
         this.SUCCESS = success;
         this.FAILURE = failure;
         this.FILE = file;
         this.ERROR = error;
         this.BODY = body;
-        this.CONTEXT = context;
     }
 
     public static RestClientBuilder builder() {
@@ -112,7 +110,7 @@ public class CHZZClient {
         if (call != null) {
             call.enqueue(getRequestCallBack());
         } else {
-            Toast.makeText(Chzz.getApplication(), "你用什么方法,哥识别不了", Toast.LENGTH_LONG).show();
+
         }
     }
 

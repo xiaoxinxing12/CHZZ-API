@@ -1,4 +1,4 @@
-#define layout()
+#define indexLayout()
 <!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
@@ -62,15 +62,25 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <div class="page-sidebar-closed-hide-logo page-content-white page-md page-header-fixed page-sidebar-fixed page-footer-fixed">
 
-
+<div class="page-wrapper">
     #include("_header.html")
+
     <div class="page-container">
-        #@main()
+
+        #include("_menu.html")
+        <div class="page-content-wrapper">
+
+            <div class="page-content">
+                #@main()
+            </div>
+
+        </div>
     </div>
-
-
     #include("_footer.html")
 </div>
+</div>
+
+
 <!-- END QUICK NAV -->
 <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>

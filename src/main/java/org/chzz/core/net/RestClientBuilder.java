@@ -1,6 +1,5 @@
 package org.chzz.core.net;
 
-import android.content.Context;
 
 import org.chzz.core.net.callback.IError;
 import org.chzz.core.net.callback.IFailure;
@@ -37,7 +36,6 @@ public class RestClientBuilder {
     //原形参数 body
     private RequestBody mBody;
     //上下文
-    private Context context;
     //加载图标样式
     //上传的文件
     private File file;
@@ -53,7 +51,9 @@ public class RestClientBuilder {
     }
 
     public final RestClientBuilder params(String key, Object value) {
-
+        if(PARAMS==null){
+            PARAMS=new HashMap<>();
+        }
         this.PARAMS.put(key, value);
         return this;
     }
@@ -92,11 +92,6 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder loader(Context context) {
-        this.context = context;
-
-        return this;
-    }
 
     public final RestClientBuilder error(IError error) {
         this.mError = error;
@@ -109,7 +104,7 @@ public class RestClientBuilder {
     }
 
     public final CHZZClient build() {
-        return new CHZZClient(mUrl, PARAMS, mRequest, mSuccess, mFailure, mError, mBody, file, context);
+        return new CHZZClient(mUrl, PARAMS, mRequest, mSuccess, mFailure, mError, mBody, file);
     }
 
 }

@@ -1,8 +1,5 @@
 package org.chzz.core.net.callback;
 
-import android.os.Handler;
-import android.widget.Toast;
-
 import org.chzz.core.app.Chzz;
 import org.chzz.core.util.GSONTools;
 
@@ -23,7 +20,7 @@ public class RequestCallback implements Callback<String> {
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
-    private static final Handler handler = new Handler();
+
 
     public RequestCallback(IRequest request, ISuccess success, IFailure failure, IError error) {
         this.REQUEST = request;
@@ -46,11 +43,11 @@ public class RequestCallback implements Callback<String> {
                             SUCCESS.onSuccess(GSONTools.jsonToBean(response.body(), SUCCESS.getEntity().getClass()));
                         }
                     } catch (Exception e) {
-                        Toast.makeText(Chzz.getApplication(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
                     }
 
                 } else {
-                    Toast.makeText(Chzz.getApplication(), "请设置回调接口", Toast.LENGTH_SHORT).show();
+
                 }
 
             }

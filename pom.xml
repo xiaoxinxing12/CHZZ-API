@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.demo</groupId>
-  <artifactId>jfinal_demo_for_maven</artifactId>
+  <artifactId>CHZZ_API_maven</artifactId>
   <packaging>war</packaging>
   <version>3.2</version>
-  <name>jfinal_demo_for_maven Maven Webapp</name>
+  <name>CHZZ_API_maven</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -88,10 +88,16 @@
     	<version>2017.5</version>
     </dependency>
 	
+
+	<dependency>
+		<groupId>org.chzz</groupId>
+		<artifactId>core</artifactId>
+		<version>0.0.4</version>
+		<type>pom</type>
+	</dependency>
   </dependencies>
-  
   <build>
-    <finalName>jfinal_demo_for_maven</finalName>
+    <finalName>CHZZ_API_maven</finalName>
 	    <plugins>
 		  <plugin>
 		    <groupId>org.mortbay.jetty</groupId>
@@ -112,6 +118,14 @@
 		        </connectors>
 		    </configuration>
 		  </plugin>
-	  </plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
   </build>
 </project>

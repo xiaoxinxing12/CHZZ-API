@@ -6,13 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="io.jpress" />
-        <module name="jfinal_demo_for_maven" />
+        <module name="CHZZ_API_maven" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="io.jpress" target="1.8" />
-      <module name="jfinal_demo_for_maven" target="1.5" />
+      <module name="CHZZ_API_maven" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

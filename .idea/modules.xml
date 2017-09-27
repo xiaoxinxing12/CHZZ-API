@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CHZZ-API.iml" filepath="$PROJECT_DIR$/CHZZ-API.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../jpress-master/io.jpress.iml" filepath="$PROJECT_DIR$/../jpress-master/io.jpress.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CHZZ_API_maven.iml" filepath="$PROJECT_DIR$/CHZZ_API_maven.iml" />
     </modules>
   </component>
 </project>

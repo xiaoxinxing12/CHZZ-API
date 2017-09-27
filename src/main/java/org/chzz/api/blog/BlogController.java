@@ -1,14 +1,9 @@
 package org.chzz.api.blog;
 
-import com.baidu.aip.face.AipFace;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 import org.chzz.api.common.model.Blog;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 
 /**
  * 本 demo 仅表达最为粗浅的 jfinal 用法，更为有价值的实用的企业级用法
@@ -64,36 +59,7 @@ public class BlogController extends Controller {
         redirect("/blog");
     }
 
-    public void testJson() {
-        // 初始化一个AipFace
-        AipFace client = new AipFace(APP_ID, API_KEY, SECRET_KEY);
 
-        // 可选：设置网络连接参数
-        client.setConnectionTimeoutInMillis(2000);
-        client.setSocketTimeoutInMillis(60000);
-
-
-        // 调用接口
-        String path = "/Users/copy/Desktop/1.png";
-        HashMap<String, String> options = new HashMap<String, String>();
-        JSONObject res = client.addUser("uid1", "test_user_info", Arrays.asList("group1", "group2"), path, options);
-        System.out.println(res.toString(2));
-    }
-
-    public void findJson() {
-        // 初始化一个AipFace
-        AipFace client = new AipFace(APP_ID, API_KEY, SECRET_KEY);
-
-        // 参数为本地图片路径
-        String imagePath1 = "/Users/copy/Desktop/t3.png";
-        String imagePath2 = "/Users/copy/Desktop/t4.png";
-        ArrayList<String> pathArray = new ArrayList<String>();
-        pathArray.add(imagePath1);
-        pathArray.add(imagePath2);
-        JSONObject response = client.match(pathArray, new HashMap<String, String>());
-        System.out.println(response.toString());
-        renderJson(response.toString());
-    }
 }
 
 
